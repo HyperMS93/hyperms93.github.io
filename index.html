@@ -1,158 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Marko Stjepanović — Production Planner Assistant</title>
-  <meta name="description" content="Marko Stjepanović — Production Planner Assistant. Advanced Excel, VBA, Python, ERP support, production planning." />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
-  <style>
-    :root{
-      --bg:#0b0f13;
-      --card:#0f1720;
-      --muted:#9aa4b2;
-      --accent:#2ac4d6;
-      --accent-2:#6be1c8;
-      --glass: rgba(255,255,255,0.03);
-      --radius:14px;
-      --maxw:900px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0d0d0d;
+        color: #e6e6e6;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#061018 0%, #071921 100%);color:#e6eef3;}
-    .wrap{max-width:var(--maxw);margin:36px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;box-shadow:0 6px 30px rgba(2,8,15,0.7);border:1px solid rgba(255,255,255,0.03);}
 
-    header{display:flex;align-items:center;gap:20px}
-    .avatar{width:112px;height:112px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:36px;color:#061018}
-    h1{margin:0;font-size:22px;letter-spacing:0.2px}
-    .headline{color:var(--muted);margin-top:6px;font-size:13px}
+    .header {
+        padding: 40px 50px;
+        background: linear-gradient(to bottom, #111, #0c0c0c);
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
 
-    .meta{margin-left:auto;text-align:right}
-    .contact{font-size:13px;color:var(--muted)}
-    a.contact-link{color:var(--accent);text-decoration:none}
-    .btn{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(42,196,214,0.14), rgba(107,225,200,0.06));border:1px solid rgba(42,196,214,0.12);font-weight:600;color:var(--accent);text-decoration:none}
+    .name {
+        font-size: 38px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
 
-    main{display:grid;grid-template-columns:1fr 320px;gap:22px;margin-top:20px}
-    @media (max-width:900px){main{grid-template-columns:1fr} .meta{text-align:left;margin-left:0}}
+    .tagline {
+        margin-top: 8px;
+        font-size: 18px;
+        opacity: 0.9;
+    }
 
-    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .section-title{color:var(--muted);font-size:12px;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
-    .about p{margin:0;color:#d9e6ee;line-height:1.45}
+    .divider {
+        margin-top: 18px;
+        width: 100%;
+        height: 1px;
+        background: rgba(255,255,255,0.10);
+    }
 
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{padding:8px 10px;border-radius:10px;background:var(--glass);font-size:13px;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+    .contact-bar {
+        margin-top: 20px;
+        display: flex;
+        gap: 25px;
+        opacity: 0.85;
+    }
 
-    .exp-item{margin-bottom:14px}
-    .exp-item h4{margin:0;font-size:15px}
-    .exp-meta{color:var(--muted);font-size:13px;margin-bottom:8px}
-    .exp-item ul{margin:6px 0 0 18px;padding:0;color:#cfe7ef}
+    .contact-bar i {
+        font-size: 20px;
+    }
 
-    .right-col .card + .card{margin-top:12px}
-    .download{display:flex;gap:8px;align-items:center}
+    .skills-section {
+        margin-top: 35px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
 
-    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+    .skill-box {
+        padding: 15px 20px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    }
 
-    /* small helpers */
-    .chip{display:inline-block;padding:6px 8px;background:linear-gradient(90deg, rgba(42,196,214,0.06), rgba(107,225,200,0.03));border-radius:999px;border:1px solid rgba(42,196,214,0.08);font-weight:600;color:var(--accent);font-size:13px}
+    .skill-title {
+        font-size: 17px;
+        margin-bottom: 6px;
+        color: #4db8ff;
+        font-weight: 600;
+    }
 
-    /* print friendly */
-    @media print{body{background:#fff;color:#000} .wrap{background:#fff;border:none;box-shadow:none} .avatar{display:none} a.contact-link:after{content:''}}
-  </style>
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-    <img src="profile.jpg" alt="Profile Photo" style="width:180px;height:auto;border-radius:12px;margin-top:20px;"/>
-      <div>
-        <h1>Marko Stjepanović</h1>
-        <div class="headline">Production Planner Assistant • Data Entry • IT Support</div>
-      </div>
 
-      <div class="meta">
-        <div class="contact">cekic5@mts.rs</div>
-        <div class="contact">Bačka Palanka, Serbia</div>
-        <a class="btn" href="mailto:cekic5@mts.rs">Contact</a>
-      </div>
-    </header>
+<div class="header">
+  <img src="profile.jpg" alt="Profile Photo" style="width:180px;height:auto;border-radius:12px;margin-top:20px;"/>
+    <div class="name">Marko Stjepanovic</div>
+    <div class="tagline">Production Planning Assistant · Data & IT Support</div>
 
-    <main>
-      <section>
-        <div class="card about">
-          <div class="section-title">About</div>
-          <p>Detail-oriented Production Planning professional with over 11 years of experience, ensuring manufacturing efficiency and on-time delivery. Leverages advanced Excel mastery and coding skills to automate planning processes, analyze complex datasets, and build robust tracking tools. Combines strong operational knowledge with professional English communication to bridge gaps between production, supply chain, and management.</p>
+    <div class="divider"></div>
+
+    <div class="contact-bar">
+        <span>📧 cekic5@mts.rs</span>
+        <span>📱 +381 64 1197022</span>
+        <span>🔗 https://www.linkedin.com/in/marko-stjepanovi%C4%87-7809111a0/</span>
+    </div>
+
+    <div class="skills-section">
+        <div class="skill-box">
+            <div class="skill-title">Planning & Data</div>
+            • Production input<br>
+            • Efficiency tracking<br>
+            • Reporting
         </div>
 
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Experience</div>
-          <div class="exp-item">
-            <h4>Production Planner Assistant — Real Knitting d.o.o</h4>
-            <div class="exp-meta">2014 — 2025</div>
-            <ul>
-              <li>Designed and maintained a dynamic production scheduling model in Excel.</li>
-              <li>Automated the generation of daily production and weekly KPI reports.</li>
-              <li>Maintained ERP data integrity by proactively training and supporting 15+ users, ensuring error-free operations and compliance with master data standards.</li>
-            </ul>
-          </div>
+        <div class="skill-box">
+            <div class="skill-title">Software Handling</div>
+            • ERP systems<br>
+            • Code creation<br>
+            • Database updates
         </div>
 
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Skills</div>
-          <div class="skills">
-            <div class="skill">Capacity Planning</div>
-            <div class="skill">MRP / ERP Support</div>
-            <div class="skill">Scheduling</div>
-            <div class="skill">Inventory Control</div>
-            <div class="skill">Lean Manufacturing</div>
-            <div class="skill">OTIF</div>
-            <div class="skill">Advanced Excel</div>
-            <div class="skill">PivotTables</div>
-            <div class="skill">Power Query</div>
-            <div class="skill">VBA Automation</div>
-            <div class="skill">Python (data analysis)</div>
-            <div class="skill">Data Visualization</div>
-            <div class="skill">ERP Systems</div>
-            <div class="skill">KPI Reporting</div>
-            <div class="skill">Procedure Documentation</div>
-            <div class="skill">Professional English</div>
-          </div>
+        <div class="skill-box">
+            <div class="skill-title">IT & Hardware</div>
+            • Hardware setup<br>
+            • Software installs<br>
+            • Network assistance
         </div>
+    </div>
+</div>
 
-      </section>
-
-      <aside class="right-col">
-        <div class="card">
-          <div class="section-title">Quick facts</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <div class="chip">11+ years experience</div>
-            <div class="chip">Excel • VBA • Python</div>
-            <div class="chip">ERP support</div>
-          </div>
-
-          <div style="margin-top:12px">
-            <div class="section-title">Contact</div>
-            <div style="font-size:14px;color:#dceff4">Email: <a class="contact-link" href="mailto:cekic5@mts.rs">cekic5@mts.rs</a></div>
-            <div style="font-size:14px;color:#dceff4;margin-top:6px">Location: Bačka Palanka, Serbia</div>
-          </div>
-
-        </div>
-
-        <div class="card">
-          <div class="section-title">Download</div>
-          <div class="download">
-            <a class="btn" href="#" onclick="window.print();return false">Print / Save PDF</a>
-            <a class="btn" href="#" onclick="copyContact();return false">Copy email</a>
-          </div>
-          <script>
-            function copyContact(){navigator.clipboard?.writeText('cekic5@mts.rs').then(()=>{alert('Email copied to clipboard')}).catch(()=>{prompt('Copy email', 'cekic5@mts.rs')});}
-          </script>
-        </div>
-
-      </aside>
-    </main>
-
-    <footer>
-      Built with care — responsive, clean, and ready to publish.
-    </footer>
-  </div>
 </body>
 </html>
