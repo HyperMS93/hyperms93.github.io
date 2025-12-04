@@ -286,14 +286,46 @@
       font-size: 16px;
       transition: all 0.3s;
       text-decoration: none;
+      position: relative;
+    }
+    
+    /* Specific icon colors */
+    .contact-icon.email {
+      color: #2ac4d6; /* Accent color for email */
+    }
+    
+    .contact-icon.phone {
+      color: #6be1c8; /* Accent-2 color for phone */
+    }
+    
+    .contact-icon.linkedin {
+      color: #0077b5; /* LinkedIn brand color */
     }
     
     .contact-icon:hover {
-      background: rgba(42,196,214,0.1);
-      color: var(--accent);
-      border-color: rgba(42,196,214,0.2);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.1);
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    /* Icon-specific hover colors */
+    .contact-icon.email:hover {
+      color: #2ac4d6;
+      background: rgba(42,196,214,0.1);
+      border-color: rgba(42,196,214,0.2);
+    }
+    
+    .contact-icon.phone:hover {
+      color: #6be1c8;
+      background: rgba(107,225,200,0.1);
+      border-color: rgba(107,225,200,0.2);
+    }
+    
+    .contact-icon.linkedin:hover {
+      color: #0077b5;
+      background: rgba(0,119,181,0.1);
+      border-color: rgba(0,119,181,0.2);
     }
 
     footer{
@@ -350,14 +382,14 @@
         
         <!-- Contact bar with icons -->
         <div class="contact-bar">
-          <a href="mailto:cekic5@mts.rs" class="contact-icon" title="Email">
+          <a href="mailto:cekic5@mts.rs" class="contact-icon email" title="Email">
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="tel:+381641197022" class="contact-icon" title="Phone">
+          <a href="tel:+381123456789" class="contact-icon phone" title="Phone">
             <i class="fas fa-phone"></i>
           </a>
-          <a href="https://linkedin.com" target="_blank" class="contact-icon" title="LinkedIn">
-            <i class="https://www.linkedin.com/in/marko-stjepanovi%C4%87-7809111a0/"></i>
+          <a href="https://linkedin.com" target="_blank" class="contact-icon linkedin" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
           </a>
         </div>
       </div>
