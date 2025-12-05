@@ -1,12 +1,18 @@
-<!doctype html>
+v<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Marko Stjepanović — Production Planner Assistant</title>
-  <meta name="description" content="Marko Stjepanović — Production Planner Assistant. Advanced Excel, VBA, Python, ERP support, production planning." />
+  <title>Marko Stjepanović — Production Planner Assistant & IT Support Specialist</title>
+  <meta name="description" content="Marko Stjepanović — Production Planner Assistant & IT Support Specialist. Advanced Excel, VBA, Python, ERP systems, network administration, desktop support." />
   <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <!-- LOCATION ADDED HERE -->
+    <div style="color:var(--muted); font-size:13px; margin-top:4px; display:flex; align-items:center; gap:6px;">
+      <i class="fas fa-map-marker-alt" style="color:var(--accent);"></i>
+      Bačka Palanka, Serbia
+    </div>
+    
   <style>
     :root{
       --bg:#0b0f13;
@@ -80,6 +86,29 @@
       color:var(--muted);
       margin-top:6px;
       font-size:13px;
+    }
+    
+    .dual-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    
+    .title-tag {
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(42,196,214,0.1);
+      border: 1px solid rgba(42,196,214,0.15);
+      color: var(--accent);
+    }
+    
+    .title-tag.it {
+      background: rgba(107,225,200,0.1);
+      border: 1px solid rgba(107,225,200,0.15);
+      color: var(--accent-2);
     }
 
     .meta{
@@ -236,6 +265,17 @@
       color: var(--accent-2);
       transform: translateY(-1px);
     }
+    
+    .skill.it-skill {
+      background: rgba(107,225,200,0.05);
+      border: 1px solid rgba(107,225,200,0.08);
+    }
+    
+    .skill.it-skill:hover {
+      background: rgba(107,225,200,0.12);
+      border-color: rgba(107,225,200,0.2);
+      color: var(--accent-2);
+    }
 
     .exp-item{
       margin-bottom:14px;
@@ -253,6 +293,40 @@
       margin:6px 0 0 18px;
       padding:0;
       color:#cfe7ef;
+    }
+    
+    .exp-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    
+    @media (max-width: 768px) {
+      .exp-highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .highlight-column {
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    
+    .highlight-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .highlight-title i {
+      color: var(--accent-2);
     }
 
     .right-col .card + .card{
@@ -293,11 +367,7 @@
     .contact-icon.email {
       color: #2ac4d6; /* Accent color for email */
     }
-    
-    .contact-icon.phone {
-      color: #6be1c8; /* Accent-2 color for phone */
-    }
-    
+       
     .contact-icon.linkedin {
       color: #0077b5; /* LinkedIn brand color */
     }
@@ -348,6 +418,12 @@
       color:var(--accent);
       font-size:13px;
     }
+    
+    .chip.it {
+      background: linear-gradient(90deg, rgba(107,225,200,0.08), rgba(107,225,200,0.04));
+      border-color: rgba(107,225,200,0.12);
+      color: var(--accent-2);
+    }
 
     /* print friendly */
     @media print{
@@ -378,17 +454,23 @@
       <img src="profile.jpg" alt="Profile Photo" style="width:180px;height:auto;border-radius:12px;margin-top:20px;box-shadow: 0 4px 12px rgba(0,0,0,0.3);"/>
       <div>
         <h1>Marko Stjepanović</h1>
-        <div class="headline">Production Planner Assistant • Data Entry • IT Support</div>
+        <div class="headline">Production Planning & IT Support Specialist</div>
+        
+        <div class="dual-title">
+          <div class="title-tag">
+            <i class="fas fa-cogs"></i> ERP & Production Planning
+          </div>
+          <div class="title-tag it">
+            <i class="fas fa-desktop"></i> IT & Network Support
+          </div>
+        </div>
         
         <!-- Contact bar with icons -->
         <div class="contact-bar">
           <a href="mailto:cekic5@mts.rs" class="contact-icon email" title="Email">
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="tel:+381123456789" class="contact-icon phone" title="Phone">
-            <i class="fas fa-phone"></i>
-          </a>
-          <a href="https://linkedin.com" target="_blank" class="contact-icon linkedin" title="LinkedIn">
+           <a href="https://linkedin.com" target="_blank" class="contact-icon linkedin" title="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
           </a>
         </div>
@@ -401,61 +483,95 @@
     <main>
       <section>
         <div class="card about">
-          <div class="section-title">About</div>
-          <p>Detail-oriented Production Planning professional with over 11 years of experience, ensuring manufacturing efficiency and on-time delivery. Leverages advanced Excel mastery and coding skills to automate planning processes, analyze complex datasets, and build robust tracking tools. Combines strong operational knowledge with professional English communication to bridge gaps between production, supply chain, and management.</p>
+          <div class="section-title">Professional Profile</div>
+          <p>Dual-skilled professional with 11+ years of production planning expertise and comprehensive IT support capabilities. Expert in ERP systems and advanced Excel automation while providing full-spectrum technical support including network administration, desktop systems, and AI-assisted programming. Bridges operational efficiency with technical problem-solving to optimize both manufacturing processes and workplace technology infrastructure.</p>
         </div>
 
         <div class="card" style="margin-top:12px">
           <div class="section-title">Experience</div>
           <div class="exp-item">
-            <h4>Production Planner Assistant — Real Knitting d.o.o</h4>
-            <div class="exp-meta">2014 — 2025</div>
-            <ul>
-              <li>Designed and maintained a dynamic production scheduling model in Excel.</li>
-              <li>Automated the generation of daily production and weekly KPI reports.</li>
-              <li>Maintained ERP data integrity by proactively training and supporting 15+ users, ensuring error-free operations and compliance with master data standards.</li>
-            </ul>
+            <h4>Production Planner Assistant & IT Support — Real Knitting d.o.o</h4>
+            <div class="exp-meta">2014 — 2025 | Dual-Role: Planning Operations & Technical Support</div>
+            
+            <div class="exp-highlights">
+              <div class="highlight-column">
+                <div class="highlight-title">
+                  <i class="fas fa-cogs"></i> ERP & Production Systems
+                </div>
+                <ul>
+                  <li>Mastered ERP data management and user support for 30+ colleagues</li>
+                  <li>Designed dynamic production scheduling models in Excel with VBA automation</li>
+                  <li>Automated daily production and KPI reporting systems</li>
+                  <li>Implemented Lean Manufacturing principles for process optimization</li>
+                  <li>Managed MRP processes and inventory control systems</li>
+                </ul>
+              </div>
+              
+              <div class="highlight-column">
+                <div class="highlight-title">
+                  <i class="fas fa-network-wired"></i> IT & Technical Support
+                </div>
+                <ul>
+                  <li>Network troubleshooting (ping, tracert, IP configuration)</li>
+                  <li>Windows desktop & server administration</li>
+                  <li>Switch, router, and IP telephone system maintenance</li>
+                  <li>AI-assisted programming in VBA, Python, and batch scripts</li>
+                  <li>Software support: MS Office Suite, Teams, Foxit Reader, ERP systems</li>
+                  <li>Hardware troubleshooting and user training documentation</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="card" style="margin-top:12px">
-          <div class="section-title">Skills</div>
+          <div class="section-title">Technical Skills</div>
           
           <!-- Skills categorized into three columns -->
           <div class="skills-categories">
             <div class="skill-category">
-              <div class="category-title">Planning & Data</div>
+              <div class="category-title">ERP & Production Systems</div>
               <div class="skills">
+                <div class="skill">ERP Implementation</div>
+                <div class="skill">MRP Processes</div>
                 <div class="skill">Capacity Planning</div>
-                <div class="skill">Scheduling</div>
+                <div class="skill">Production Scheduling</div>
                 <div class="skill">Inventory Control</div>
                 <div class="skill">Lean Manufacturing</div>
-                <div class="skill">OTIF</div>
                 <div class="skill">KPI Reporting</div>
+                <div class="skill">OTIF Tracking</div>
               </div>
             </div>
             
             <div class="skill-category">
-              <div class="category-title">ERP/Software Handling</div>
+              <div class="category-title">Software & Automation</div>
               <div class="skills">
-                <div class="skill">MRP / ERP Support</div>
                 <div class="skill">Advanced Excel</div>
-                <div class="skill">PivotTables</div>
+                <div class="skill">VBA Macros</div>
                 <div class="skill">Power Query</div>
-                <div class="skill">VBA Automation</div>
-                <div class="skill">Python (data analysis)</div>
+                <div class="skill">PivotTables</div>
+                <div class="skill">Python (Data Analysis)</div>
+                <div class="skill">Batch Scripting</div>
+                <div class="skill">MS Office Suite</div>
+                <div class="skill">MS Teams</div>
+                <div class="skill">Foxit Reader</div>
+                <div class="skill">Data Visualization</div>
               </div>
             </div>
             
             <div class="skill-category">
-              <div class="category-title">IT Support & Hardware</div>
+              <div class="category-title">IT & Network Support</div>
               <div class="skills">
-                <div class="skill">Data Visualization</div>
-                <div class="skill">ERP Systems</div>
-                <div class="skill">Procedure Documentation</div>
-                <div class="skill">Professional English</div>
-                <div class="skill">User Training</div>
-                <div class="skill">Technical Support</div>
+                <div class="skill it-skill">Network Administration</div>
+                <div class="skill it-skill">CMD Commands</div>
+                <div class="skill it-skill">Switches & Routers</div>
+                <div class="skill it-skill">IP Telephony</div>
+                <div class="skill it-skill">Windows Desktop</div>
+                <div class="skill it-skill">Windows Server</div>
+                <div class="skill it-skill">Hardware Troubleshooting</div>
+                <div class="skill it-skill">User Training</div>
+                <div class="skill it-skill">Technical Documentation</div>
+                <div class="skill it-skill">AI-Assisted Programming</div>
               </div>
             </div>
           </div>
@@ -466,14 +582,32 @@
 
       <aside class="right-col">
         <div class="card">
-          <div class="section-title">Quick facts</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <div class="chip">11+ years experience</div>
-            <div class="chip">Excel • VBA • Python</div>
-            <div class="chip">ERP support</div>
+          <div class="section-title">Key Highlights</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="chip">11+ Years Dual Expertise</div>
+            <div class="chip">ERP Systems Mastery</div>
+            <div class="chip">Excel/VBA Automation</div>
+            <div class="chip it">Network Administration</div>
+            <div class="chip it">Windows Systems</div>
+            <div class="chip">Python & Batch Scripts</div>
           </div>
+        </div>
+        
+        <div class="card">
+          <div class="section-title">Desktop & Office Software</div>
+          <div class="skills">
+            <div class="skill">Microsoft Excel</div>
+            <div class="skill">Microsoft Teams</div>
+            <div class="skill">Outlook/Email</div>
+            <div class="skill">Word/PowerPoint</div>
+            <div class="skill">Foxit Reader</div>
+            <div class="skill">ERP Software</div>
+            <div class="skill">PDF Management</div>
+            <div class="skill">Remote Desktop</div>
+          </div>
+        </div>
 
-          <div class="card">
+        <div class="card">
           <div class="section-title">Download</div>
           <div class="download">
             <a class="btn" href="#" onclick="window.print();return false"><i class="fas fa-print"></i> Print / Save PDF</a>
