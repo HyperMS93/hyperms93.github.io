@@ -605,12 +605,14 @@
           </div>
         </div>
 
-        <div class="card">
-          <div class="section-title">Download</div>
-          <div class="download">
-            <a class="btn" href="#" onclick="window.print();return false"><i class="fas fa-print"></i> Print / Save PDF</a>
-            <a class="btn" href="#" onclick="copyContact();return false"><i class="fas fa-copy"></i> Copy email</a>
-          </div>
+        <div class="section-title">Download</div>
+<div class="download">
+  <a class="btn" href="#" onclick="window.print();return false"><i class="fas fa-print"></i> Print / Save PDF</a>
+  <a class="btn" href="MARKO STJEPANOVIC. ATS RESUME.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download ATS Resume
+  </a>
+  <a class="btn" href="#" onclick="copyContact();return false"><i class="fas fa-copy"></i> Copy email</a>
+</div>
           <script>
             function copyContact(){
               navigator.clipboard?.writeText('cekic5@mts.rs').then(()=>{
