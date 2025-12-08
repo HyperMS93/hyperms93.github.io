@@ -4,632 +4,134 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Marko Stjepanović — Production Planner Assistant & IT Support Specialist  </title>
-  <meta name="description" content="Marko Stjepanović — Production Planner Assistant & IT Support Specialist. Advanced Excel, VBA, Python, ERP systems, network administration, desktop support." />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="description" content="Marko Stjepanović — Production Planner Assistant & IT Support Specialist. Advanced knowledge in Excel, VBA automation, data transformation, and workflow optimization. Website created via GitHub Pages." />
   <style>
-    :root{
-      --bg:#0b0f13;
-      --card:#0f1720;
-      --muted:#9aa4b2;
-      --accent:#2ac4d6;
-      --accent-2:#6be1c8;
-      --accent-glow: rgba(42,196,214,0.15);
-      --glass: rgba(255,255,255,0.03);
-      --radius:14px;
-      --maxw:900px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#061018 0%, #071921 100%);color:#e6eef3;}
-    .wrap{max-width:var(--maxw);margin:36px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;box-shadow:0 6px 30px rgba(2,8,15,0.7), 0 0 0 1px rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);position:relative;}
-    
-    /* Header glow effect */
-    .wrap::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0.2;
-    }
-
-    header{
-      display:flex;
-      align-items:center;
-      gap:20px;
-      position: relative;
-      padding-bottom: 16px;
-    }
-    
-    /* Subtle divider line */
-    .header-divider {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    }
-    
-    .avatar{
-      width:112px;
-      height:112px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      font-size:36px;
-      color:#061018;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    h1{
-      margin:0;
-      font-size:22px;
-      letter-spacing:0.2px;
-      background: linear-gradient(90deg, #e6eef3, var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .headline{
-      color:var(--muted);
-      margin-top:6px;
-      font-size:13px;
-    }
-    
-    .dual-title {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    
-    .title-tag {
-      padding: 4px 12px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      background: rgba(42,196,214,0.1);
-      border: 1px solid rgba(42,196,214,0.15);
-      color: var(--accent);
-    }
-    
-    .title-tag.it {
-      background: rgba(107,225,200,0.1);
-      border: 1px solid rgba(107,225,200,0.15);
-      color: var(--accent-2);
-    }
-
-    .meta{
-      margin-left:auto;
-      text-align:right;
-    }
-    .contact{
-      font-size:13px;
-      color:var(--muted);
-    }
-    a.contact-link{
-      color:var(--accent);
-      text-decoration:none;
-      transition: color 0.2s;
-    }
-    a.contact-link:hover{
-      color:var(--accent-2);
-    }
-    .btn{
-      display:inline-block;
-      margin-top:10px;
-      padding:8px 12px;
-      border-radius:10px;
-      background:linear-gradient(90deg, rgba(42,196,214,0.14), rgba(107,225,200,0.06));
-      border:1px solid rgba(42,196,214,0.12);
-      font-weight:600;
-      color:var(--accent);
-      text-decoration:none;
-      transition: all 0.2s;
-    }
-    .btn:hover{
-      background:linear-gradient(90deg, rgba(42,196,214,0.18), rgba(107,225,200,0.1));
-      border-color: rgba(42,196,214,0.2);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    main{
-      display:grid;
-      grid-template-columns:1fr 320px;
-      gap:22px;
-      margin-top:20px;
-    }
-    @media (max-width:900px){
-      main{
-        grid-template-columns:1fr;
-      }
-      .meta{
-        text-align:left;
-        margin-left:0;
-      }
-    }
-
-    .card{
-      background:var(--card);
-      padding:18px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.02);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-      transition: box-shadow 0.3s, transform 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(42,196,214,0.1), transparent);
-    }
-    
-    .card:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-      transform: translateY(-2px);
-    }
-    
-    .section-title{
-      color:var(--muted);
-      font-size:12px;
-      margin-bottom:8px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 20px;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-    
-    .about p{
-      margin:0;
-      color:#d9e6ee;
-      line-height:1.45;
-    }
-
-    .skills-categories {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 8px;
-    }
-    
-    @media (max-width: 768px) {
-      .skills-categories {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-    }
-    
-    .skill-category {
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 20px;
       display: flex;
       flex-direction: column;
-    }
-    
-    .category-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 10px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .skills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    
-    .skill{
-      padding:8px 10px;
-      border-radius:10px;
-      background:var(--glass);
-      font-size:13px;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,0.02);
-      transition: all 0.2s;
-    }
-    
-    .skill:hover {
-      background: rgba(42,196,214,0.08);
-      border-color: rgba(42,196,214,0.1);
-      color: var(--accent-2);
-      transform: translateY(-1px);
-    }
-    
-    .skill.it-skill {
-      background: rgba(107,225,200,0.05);
-      border: 1px solid rgba(107,225,200,0.08);
-    }
-    
-    .skill.it-skill:hover {
-      background: rgba(107,225,200,0.12);
-      border-color: rgba(107,225,200,0.2);
-      color: var(--accent-2);
-    }
-
-    .exp-item{
-      margin-bottom:14px;
-    }
-    .exp-item h4{
-      margin:0;
-      font-size:15px;
-    }
-    .exp-meta{
-      color:var(--muted);
-      font-size:13px;
-      margin-bottom:8px;
-    }
-    .exp-item ul{
-      margin:6px 0 0 18px;
-      padding:0;
-      color:#cfe7ef;
-    }
-    
-    .exp-highlights {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 12px;
-    }
-    
-    @media (max-width: 768px) {
-      .exp-highlights {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .highlight-column {
-      background: rgba(255,255,255,0.02);
-      border-radius: 8px;
-      padding: 12px;
-      border: 1px solid rgba(255,255,255,0.03);
-    }
-    
-    .highlight-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 8px;
-      display: flex;
       align-items: center;
-      gap: 6px;
     }
-    
-    .highlight-title i {
-      color: var(--accent-2);
+    h1, h2 {
+      color: #222;
     }
-
-    .right-col .card + .card{
-      margin-top:12px;
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
     }
-    .download{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-
-    /* Contact bar with icons */
-    .contact-bar {
+    .container {
       display: flex;
-      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      max-width: 900px;
+      width: 100%;
       gap: 20px;
-      margin-top: 16px;
-      padding: 12px 0;
     }
-    
-    .contact-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
-      color: var(--muted);
-      font-size: 16px;
-      transition: all 0.3s;
+    .section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
       text-decoration: none;
-      position: relative;
+      border-radius: 5px;
+      transition: background-color 0.3s;
     }
-    
-    /* Specific icon colors */
-    .contact-icon.email {
-      color: #2ac4d6; /* Accent color for email */
+    .download-btn:hover {
+      background-color: #0056b3;
     }
-       
-    .contact-icon.linkedin {
-      color: #0077b5; /* LinkedIn brand color */
+    .contact-links a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      display: block;
+      margin: 5px 0;
     }
-    
-    .contact-icon:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.1);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    
-    /* Icon-specific hover colors */
-    .contact-icon.email:hover {
-      color: #2ac4d6;
-      background: rgba(42,196,214,0.1);
-      border-color: rgba(42,196,214,0.2);
-    }
-    
-    .contact-icon.phone:hover {
-      color: #6be1c8;
-      background: rgba(107,225,200,0.1);
-      border-color: rgba(107,225,200,0.2);
-    }
-    
-    .contact-icon.linkedin:hover {
-      color: #0077b5;
-      background: rgba(0,119,181,0.1);
-      border-color: rgba(0,119,181,0.2);
-    }
-
-    footer{
-      margin-top:20px;
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    /* small helpers */
-    .chip{
-      display:inline-block;
-      padding:6px 8px;
-      background:linear-gradient(90deg, rgba(42,196,214,0.06), rgba(107,225,200,0.03));
-      border-radius:999px;
-      border:1px solid rgba(42,196,214,0.08);
-      font-weight:600;
-      color:var(--accent);
-      font-size:13px;
-    }
-    
-    .chip.it {
-      background: linear-gradient(90deg, rgba(107,225,200,0.08), rgba(107,225,200,0.04));
-      border-color: rgba(107,225,200,0.12);
-      color: var(--accent-2);
-    }
-
-    /* print friendly */
-    @media print{
-      body{
-        background:#fff;
-        color:#000;
-      }
-      .wrap{
-        background:#fff;
-        border:none;
-        box-shadow:none;
-      }
-      .avatar{
-        display:none;
-      }
-      a.contact-link:after{
-        content:'';
-      }
-      .contact-bar, .header-divider {
-        display: none;
-      }
+    .section h2 {
+      margin-top: 0;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <img src="profile.jpg" alt="Profile Photo" style="width:180px;height:auto;border-radius:12px;margin-top:20px;box-shadow: 0 4px 12px rgba(0,0,0,0.3);"/>
-      <div>
-        <h1>Marko Stjepanović</h1>
-        <div class="headline">Production Planning & IT Support Specialist</div>
-          <!-- LOCATION ADDED HERE -->
-    <div style="color:var(--muted); font-size:13px; margin-top:4px; display:flex; align-items:center; gap:6px;">
-      <i class="fas fa-map-marker-alt" style="color:var(--accent);"></i>
-      Bačka Palanka, Serbia
+  <div class="header">
+    <h1>Marko Stjepanović</h1>
+    <p>Production Planner Assistant & IT Support Specialist</p>
+  </div>
+
+  <div class="container">
+
+    <div class="section contact-links">
+      <h2>Contact</h2>
+      <a href="mailto:stj.marko@outlook.com">📧 stj.marko@outlook.com</a>
+      <a href="https://www.linkedin.com/in/markostjepanovic93" target="_blank">🔗 LinkedIn</a>
+
+      <a class="download-btn" href="Marko_Stjepanovic_Resume_ENG.pdf" download>⬇️ Download Resume (ENG)</a>
+      <a class="download-btn" href="Marko_Stjepanovic_ATS_CV_SRP.pdf" download>⬇️ ATS CV (SRP)</a>
     </div>
-        <div class="dual-title">
-          <div class="title-tag">
-            <i class="fas fa-cogs"></i> ERP & Production Planning
-          </div>
-          <div class="title-tag it">
-            <i class="fas fa-desktop"></i> IT & Network Support
-          </div>
-        </div>
-        
-        <!-- Contact bar with icons -->
-        <div class="contact-bar">
-          <a href="mailto:cekic5@mts.rs" class="contact-icon email" title="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-           <a href="https://linkedin.com" target="_blank" class="contact-icon linkedin" title="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-        </div>
-      </div>
 
-      <!-- Subtle divider line -->
-      <div class="header-divider"></div>
-    </header>
+    <div class="section">
+      <h2>About Me</h2>
+      <p>
+        Production planner assistant with 11 years of experience in data entry, reporting, Excel automation, maintenance of planning .xlsx systems, and improving department efficiency.
+        Strong ability to design and automate workflows, prepare documentation, restructure datasets, and support planning improvements.
+      </p>
+    </div>
 
-    <main>
-      <section>
-        <div class="card about">
-          <div class="section-title">Professional Profile</div>
-          <p>Dual-skilled professional with 11+ years of production planning expertise and comprehensive IT support capabilities. Expert in ERP systems and advanced Excel automation while providing full-spectrum technical support including network administration, desktop systems, and AI-assisted programming. Bridges operational efficiency with technical problem-solving to optimize both manufacturing processes and workplace technology infrastructure.</p>
-        </div>
+    <div class="section">
+      <h2>Education</h2>
+      <ul>
+        <li>University of Novi Sad — Faculty of Sciences (Undergraduate Studies)</li>
+      </ul>
+    </div>
 
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Experience</div>
-          <div class="exp-item">
-            <h4>Production Planner Assistant & IT Support — Real Knitting d.o.o</h4>
-            <div class="exp-meta">2014 — 2025 | Dual-Role: Planning Operations & Technical Support</div>
-            
-            <div class="exp-highlights">
-              <div class="highlight-column">
-                <div class="highlight-title">
-                  <i class="fas fa-cogs"></i> ERP & Production Systems
-                </div>
-                <ul>
-                  <li>Mastered ERP data management and user support for 30+ colleagues</li>
-                  <li>Designed dynamic production scheduling models in Excel with VBA automation</li>
-                  <li>Automated daily production and KPI reporting systems</li>
-                  <li>Implemented Lean Manufacturing principles for process optimization</li>
-                  <li>Managed MRP processes and inventory control systems</li>
-                </ul>
-              </div>
-              
-              <div class="highlight-column">
-                <div class="highlight-title">
-                  <i class="fas fa-network-wired"></i> IT & Technical Support
-                </div>
-                <ul>
-                  <li>Network troubleshooting (ping, tracert, IP configuration)</li>
-                  <li>Windows desktop & server administration</li>
-                  <li>Switch, router, and IP telephone system maintenance</li>
-                  <li>AI-assisted programming in VBA, Python, and batch scripts</li>
-                  <li>Software support: MS Office Suite, Teams, Foxit Reader, ERP systems</li>
-                  <li>Hardware troubleshooting and user training documentation</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="section">
+      <h2>Skills</h2>
+      <ul>
+        <li>Advanced Excel (INDEX/MATCH/XLOOKUP, Power Query, Pivot Tables, Dynamic Arrays)</li>
+        <li>Advanced VBA (automation, scraping, workflow execution logic)</li>
+        <li>Data processing & transformation</li>
+        <li>HTML/CSS (mid-level)</li>
+        <li>Troubleshooting & IT support</li>
+        <li>Office workflow optimization</li>
+      </ul>
+    </div>
 
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Technical Skills</div>
-          
-          <!-- Skills categorized into three columns -->
-          <div class="skills-categories">
-            <div class="skill-category">
-              <div class="category-title">ERP & Production Systems</div>
-              <div class="skills">
-                <div class="skill">ERP Implementation</div>
-                <div class="skill">MRP Processes</div>
-                <div class="skill">Capacity Planning</div>
-                <div class="skill">Production Scheduling</div>
-                <div class="skill">Inventory Control</div>
-                <div class="skill">Lean Manufacturing</div>
-                <div class="skill">KPI Reporting</div>
-                <div class="skill">OTIF Tracking</div>
-              </div>
-            </div>
-            
-            <div class="skill-category">
-              <div class="category-title">Software & Automation</div>
-              <div class="skills">
-                <div class="skill">Advanced Excel</div>
-                <div class="skill">VBA Macros</div>
-                <div class="skill">Power Query</div>
-                <div class="skill">PivotTables</div>
-                <div class="skill">Python (Data Analysis)</div>
-                <div class="skill">Batch Scripting</div>
-                <div class="skill">MS Office Suite</div>
-                <div class="skill">MS Teams</div>
-                <div class="skill">Foxit Reader</div>
-                <div class="skill">Data Visualization</div>
-              </div>
-            </div>
-            
-            <div class="skill-category">
-              <div class="category-title">IT & Network Support</div>
-              <div class="skills">
-                <div class="skill it-skill">Network Administration</div>
-                <div class="skill it-skill">CMD Commands</div>
-                <div class="skill it-skill">Switches & Routers</div>
-                <div class="skill it-skill">IP Telephony</div>
-                <div class="skill it-skill">Windows Desktop</div>
-                <div class="skill it-skill">Windows Server</div>
-                <div class="skill it-skill">Hardware Troubleshooting</div>
-                <div class="skill it-skill">User Training</div>
-                <div class="skill it-skill">Technical Documentation</div>
-                <div class="skill it-skill">AI-Assisted Programming</div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
+    <div class="section">
+      <h2>Languages</h2>
+      <ul>
+        <li>Serbian — native</li>
+        <li>English — advanced</li>
+        <li>Italian — basic</li>
+      </ul>
+    </div>
 
-      </section>
+    <div class="section">
+      <h2>Experience</h2>
+      <p><strong>Real Knitting d.o.o. — Production Planner Assistant</strong></p>
+      <p>Bačka Palanka, Serbia</p>
+      <ul>
+        <li>Creating databases, transforming data, and building planning systems in Excel</li>
+        <li>Maintenance of operational files used in daily/weekly/monthly planning</li>
+        <li>Automation of planning tasks using Excel VBA</li>
+        <li>IT support and resolving workflow-related system issues</li>
+        <li>Preparing reports and maintaining master datasets for planning team</li>
+      </ul>
+    </div>
 
-      <aside class="right-col">
-        <div class="card">
-          <div class="section-title">Key Highlights</div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div class="chip">11+ Years Dual Expertise</div>
-            <div class="chip">ERP Systems Mastery</div>
-            <div class="chip">Excel/VBA Automation</div>
-            <div class="chip it">Network Administration</div>
-            <div class="chip it">Windows Systems</div>
-            <div class="chip">Python & Batch Scripts</div>
-          </div>
-        </div>
-        
-        <div class="card">
-          <div class="section-title">Desktop & Office Software</div>
-          <div class="skills">
-            <div class="skill">Microsoft Excel</div>
-            <div class="skill">Microsoft Teams</div>
-            <div class="skill">Outlook/Email</div>
-            <div class="skill">Word/PowerPoint</div>
-            <div class="skill">Foxit Reader</div>
-            <div class="skill">ERP Software</div>
-            <div class="skill">PDF Management</div>
-            <div class="skill">Remote Desktop</div>
-          </div>
-        </div>
-
-        <div class="section-title">Download</div>
-<div class="download">
-  <a class="btn" href="#" onclick="window.print();return false"><i class="fas fa-print"></i> Print / Save PDF</a>
-  <a class="btn" href="MARKO STJEPANOVIC. ATS RESUME.pdf" download>
-    <i class="fas fa-file-pdf"></i> Download ATS Resume
-  </a>
-  <a class="btn" href="#" onclick="copyContact();return false"><i class="fas fa-copy"></i> Copy email</a>
-</div>
-          <script>
-            function copyContact(){
-              navigator.clipboard?.writeText('cekic5@mts.rs').then(()=>{
-                alert('Email copied to clipboard');
-              }).catch(()=>{
-                prompt('Copy email', 'cekic5@mts.rs');
-              });
-            }
-          </script>
-        </div>
-
-      </aside>
-    </main>
-
-    <footer>
-      Built with care — responsive, clean, and ready to publish.
-    </footer>
   </div>
 </body>
 </html>
